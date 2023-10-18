@@ -1,6 +1,6 @@
+---
 name: Commit Stage
 on: push
-
 jobs:
   build:
     name: Build and Test
@@ -21,7 +21,7 @@ jobs:
         uses: anchore/scan-action@v3
         id: scan
         with:
-          path: "${{github.workspace}}"
+          path: ${{github.workspace}}
           fail-build: false
           severity-cutoff: high
           acs-report-enable: true
@@ -34,5 +34,3 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build
-
-### Commit Stage 
