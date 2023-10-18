@@ -1,4 +1,4 @@
-package com.nativespring.catalogservice;
+package com.nativespring.catalogservice.BookTests;
 
 import java.util.Set;
 

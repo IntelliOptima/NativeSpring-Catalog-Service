@@ -1,4 +1,4 @@
-package com.nativespring.catalogservice;
+package com.nativespring.catalogservice.BookTests;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
