@@ -4,7 +4,7 @@ on: push
 
 env:
   REGISTRY: ghrc.io
-  IMAGE_NAME: ${{ github.repository_owner }}/github-actions
+  IMAGE_NAME: ${{ github.repository_owner }}/catalog-service
   VERSION: latest
   
 jobs:
