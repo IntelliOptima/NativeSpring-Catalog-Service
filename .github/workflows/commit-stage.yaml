@@ -3,7 +3,7 @@ name: Commit Stage
 on: push
 
 env:
-  REGISTRY: ghrc.io
+  REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/catalog-service
   VERSION: latest
   
