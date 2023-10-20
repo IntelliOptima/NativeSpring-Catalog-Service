@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class BookDataLoader {
 
     private final BookRepository bookRepository;
+	
 
     @EventListener(ApplicationReadyEvent.class)
     public void loadBookTestData() {
