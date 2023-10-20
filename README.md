@@ -140,6 +140,7 @@ k8s_yaml(kustomize('k8s/resources/base'))
 # Manage
 k8s_resource('catalog-service', port_forwards=['9001'])
 ```
+
 ## Using KubeConform to validate your kubernetes yaml files
 
 read docs [here](https://medium.com/@dangreenlee_/continually-validate-kubernetes-manifests-using-kubeconform-and-githubactions-ed74ed3ba4ca)
