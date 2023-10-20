@@ -140,3 +140,22 @@ k8s_yaml(kustomize('k8s/resources/base'))
 # Manage
 k8s_resource('catalog-service', port_forwards=['9001'])
 ```
+## Using KubeConform to validate your kubernetes yaml files
+
+read docs [here](https://medium.com/@dangreenlee_/continually-validate-kubernetes-manifests-using-kubeconform-and-githubactions-ed74ed3ba4ca)
+
+applying kubeconform to workflow append to build stage
+
+```yml
+- name: Validate Kubernetes manifests
+        uses: yokawasa/action-setup-kube-tools@v0.9.3
+        with:
+          setup-tools: |
+            kubeconform
+            kustomize
+          kubeconform: '0.5.0'
+          kustomize: '4.5.7'
+      - run: |
+          kustomize build k8s/resources/base | kubeconform -verbose
+```
+

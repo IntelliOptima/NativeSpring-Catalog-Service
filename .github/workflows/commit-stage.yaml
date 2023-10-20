@@ -18,16 +18,29 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: temurin
           java-version: 17
           cache: gradle
+
       - name: Build, unit tests and integration tests
         run: |
           chmod +x gradlew
           ./gradlew build
+
+      - name: Validate Kubernetes manifests
+        uses: yokawasa/action-setup-kube-tools@v0.9.3
+        with:
+          setup-tools: |
+            kubeconform
+            kustomize
+          kubeconform: '0.5.0'
+          kustomize: '4.5.7'
+      - run: |
+          kustomize build k8s/resources/base | kubeconform -verbose
 
   package:
     name: Package and Publish
